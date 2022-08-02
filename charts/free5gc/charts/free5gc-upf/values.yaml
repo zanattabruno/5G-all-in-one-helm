@@ -60,6 +60,19 @@ upf:
   volume:
     name: upf-volume
     mount: /free5gc/config/
+  service:
+      n4:
+        name: upf-n4
+        port: 8805
+        targetport: 8805
+        protocol: UDP
+        type: ClusterIP
+      n3:
+        name: upf-n3
+        port: 8805
+        targetport: 8805
+        protocol: UDP
+        type: ClusterIP
 
   # network paramters
   n3if:  # GTP-U

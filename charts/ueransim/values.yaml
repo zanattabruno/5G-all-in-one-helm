@@ -54,17 +54,17 @@ gnb:
     protocol: UDP
 
   n2if:  # NGAP
-    ipAddress: 10.100.50.250
+    ipAddress: 0.0.0.0
   n3if:  # GTP-U
-    ipAddress: 10.100.50.236
+    ipAddress: 0.0.0.0
 
   amf:
     n2if:  # NGAP
-      ipAddress: 10.100.50.249
+      ipAddress: amf-n2
       port: 38412
     service:
       ngap:
-        enabled: false  # if true set gnb.amf.n2if.ipAddress to the name of AMF NGAP service or the IP of the cluster hosting the AMF
+        enabled: true  # if true set gnb.amf.n2if.ipAddress to the name of AMF NGAP service or the IP of the cluster hosting the AMF
 
   podAnnotations: {}
     # additional annotations

@@ -26,51 +26,55 @@ global:
   sbi:
     scheme: http
   amf:
-    n2if:  # NGAP
-      ipAddress: 10.100.50.249
     service:
       ngap:
-        enabled: false
+        enabled: true
         name: amf-n2
         port: 38412
         nodeport: 31412
         protocol: SCTP
         type: NodePort
-  smf:
-    n4if:
-      ipAddress: 10.100.50.244
+  upf:      
+    service:
+      n4:
+        name: upf-n4
+        port: 8805
+        targetport: 8805
+        protocol: UDP
+        type: ClusterIP
+      n3:
+        name: upf-n3
+        port: 8805
+        targetport: 8805
+        protocol: UDP
+        type: ClusterIP
+
+        
   #Global network parametes
-  n2network:
-    name: n2network
-    masterIf: eth0
-    subnetIP: 10.100.50.248
-    cidr: 29
-    gatewayIP: 10.100.50.254
-    excludeIP: 10.100.50.254
   n3network:
     name: n3network
-    masterIf: eth0
+    masterIf: ens192
     subnetIP: 10.100.50.232
     cidr: 29
     gatewayIP: 10.100.50.238
     excludeIP: 10.100.50.238
   n4network:
     name: n4network
-    masterIf: eth0
+    masterIf: ens192
     subnetIP: 10.100.50.240
     cidr: 29
     gatewayIP: 10.100.50.246
     excludeIP: 10.100.50.246
   n6network:
     name: n6network
-    masterIf: eth1
+    masterIf: ens192
     subnetIP: 10.100.100.0
     cidr: 24
     gatewayIP: 10.100.100.1
     excludeIP: 10.100.100.254
   n9network:
     name: n9network
-    masterIf: eth0
+    masterIf: ens192
     subnetIP: 10.100.50.224
     cidr: 29
     gatewayIP: 10.100.50.230

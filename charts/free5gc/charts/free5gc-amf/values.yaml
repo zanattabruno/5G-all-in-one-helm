@@ -28,14 +28,12 @@ global:
   sbi:
     scheme: http
   amf:
-    n2if:  # NGAP
-      ipAddress: 10.100.50.249
     service:
       ngap:
         enabled: false
         name: amf-n2
         port: 38412
-        nodeport: 31412
+        targetport: 31412
         protocol: SCTP
         type: NodePort
   n2network:

@@ -28,10 +28,10 @@ data:
       {{- toYaml .configuration.configuration | nindent 6 }}
     
       pfcp:
-        - addr: {{ .n4if.ipAddress }}
+        - addr: 127.0.0.1
     
       gtpu:
-        - addr: {{ .n3if.ipAddress }}
+        - addr: 0.0.0.0
         # [optional] gtpu.name
         # - name: upf.5gc.nctu.me
         # [optional] gtpu.ifname

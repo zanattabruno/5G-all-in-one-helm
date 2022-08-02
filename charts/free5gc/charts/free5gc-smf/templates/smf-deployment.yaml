@@ -31,15 +31,7 @@ spec:
   template:
     metadata:
       annotations:
-        {{- include "free5gc-smf.smfAnnotations" $ | nindent 8 }}
-        {{- if $.Values.isPfcpNeeded }}
-        k8s.v1.cni.cncf.io/networks: '[
-            { "name": "{{ $.Values.global.n4network.name }}-{{ .name }}",
-              "interface": "n4",
-              "ips": [ "{{ $.Values.global.smf.n4if.ipAddress }}/{{ $.Values.global.n4network.cidr }}" ],
-              "gateway": [ "{{ $.Values.global.n4network.gatewayIP }}" ]
-            }]'
-        {{- end }}
+        {{- include "free5gc-smf.smfAnnotations" $ | nindent 8 }}       
         checksum/config: {{ include (print $.Template.BasePath "/smf-configmap.yaml") $ | sha256sum }}
       labels:
         {{- include "free5gc-smf.selectorLabels" $ | nindent 8 }}
@@ -69,11 +61,9 @@ spec:
         ports:
         - name: nsmf
           containerPort: {{ .service.port }}
-        {{- if $.Values.isPfcpNeeded }}
         - name: n4
           containerPort: 8805
           protocol: UDP
-        {{- end }}
         command: ["./smf"]
         args: ["-c", "../config/smfcfg.yaml", "-u", "../config/uerouting.yaml"]
         env:

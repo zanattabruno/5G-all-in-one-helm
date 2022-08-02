@@ -28,16 +28,6 @@ global:
       nodePort: "30800"
   sbi:
     scheme: http
-  smf:
-    n4if:
-      ipAddress: 10.100.50.244
-  n4network:
-    name: n4network
-    masterIf: eth0
-    subnetIP: 10.100.50.240
-    cidr: 29
-    gatewayIP: 10.100.50.246
-    excludeIP: 10.100.50.246
 
 initcontainers:
   curl:
@@ -56,7 +46,6 @@ mongodb:
     port: 27017
     nodePort: "30017"
 
-isPfcpNeeded: true
 smf:
   name: smf
   replicaCount: 1
@@ -155,7 +144,7 @@ smf:
             type: AN # the type of the node (AN or UPF)
           UPF:  # the name of the node
             type: UPF # the type of the node (AN or UPF)
-            nodeID: 10.100.50.241 # the IP/FQDN of N4 interface on this UPF (PFCP)
+            nodeID: upf-n4 # the IP/FQDN of N4 interface on this UPF (PFCP)
             sNssaiUpfInfos: # S-NSSAI information list for this UPF
                   - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
                       sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -174,7 +163,7 @@ smf:
             interfaces: # Interface list for this UPF
                   - interfaceType: N3 # the type of the interface (N3 or N9)
                     endpoints: # the IP address of this N3/N9 interface on this UPF
-                      - 10.100.50.233
+                      - upf-n3
                     networkInstance: internet # Data Network Name (DNN)
         links: # the topology graph of userplane, A and B represent the two nodes of each link
           - A: gNB1
