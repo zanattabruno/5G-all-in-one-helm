@@ -31,7 +31,7 @@ Please feel free to visit the [official Helm documentation](https://helm.sh/docs
 
 ## Why removing multus?
 [Multus](https://github.com/k8snetworkplumbingwg/multus-cni)  is a container network interface (CNI) plugin for Kubernetes that enables attaching multiple network interfaces to pods. Typically, in Kubernetes, each pod only has one network interface (apart from a loopback) -- with Multus, you can create a multi-homed pod with multiple interfaces. This is accomplished by Multus acting as a "meta-plugin," a CNI plugin that can call various other CNI plugins.
-To deploy an application with Multus, it is necessary to have a high level of control over the used cluster. These characteristics become complex deployment in third-party environments when used as a bridge between the container and host interface.
+To deploy an application with Multus, it is necessary to have a high level of control over the used cluster. These characteristics become complex deployment in third-party kubernetes environments when used as a bridge between the container and host interface.
 
 
 Please feel free to visit the [official Multus documentation](https://github.com/k8snetworkplumbingwg/multus-cni/tree/master/docs) for more details.
