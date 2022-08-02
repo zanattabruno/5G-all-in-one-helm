@@ -17,6 +17,3 @@ Thanks to both Orange towards5GS, Free5GC and UERANSIM teams for their great eff
 
 ## License
 ***5G-all-in-one-helm*** is under [Apache 2.0](./LICENSE) license.
-
-
-
