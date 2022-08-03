@@ -1,6 +1,6 @@
 # 5G-all-in-one Helm
 
-***5G-all-in-one-helm*** is an open-source project implemented to provide helm charts in order deploy on one click a 5G system (RAN+SA 5G core) without using a lot, that is, exclusively on top of the kubernetes network plugin, like Calico.  It currently relies on Free5GC  for the core  network and UERANSIM  to simulate Radio Access Network  
+***5G-all-in-one-helm*** is an open-source project implemented to provide helm charts in order deploy on one click a 5G system (RAN+SA 5G core) without using a lot, that is, exclusively on top of the kubernetes network plugin, like Calico.  It currently relies on Free5GC  for the core  network and UERANSIM  to simulate Radio Access Network. In furure will be added suport to [my5G-RANTester](https://github.com/my5G/my5G-RANTester)
 
 ## TL;DR
 ```console
