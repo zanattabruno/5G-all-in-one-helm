@@ -1,6 +1,6 @@
 #
-# Software Name : towards5gs-helm
-# SPDX-FileCopyrightText: Copyright (c) 2021 Orange
+# Software Name : 5G-all-in-one-helm
+# SPDX-FileCopyrightText: Copyright (c) 2022
 # SPDX-License-Identifier: Apache-2.0
 #
 # This software is distributed under the Apache License 2.0,
