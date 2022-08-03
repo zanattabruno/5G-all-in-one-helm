@@ -39,7 +39,7 @@ data:
       nrfUri: {{ $.Values.global.sbi.scheme }}://{{ $.Values.global.nrf.service.name }}:{{ $.Values.global.nrf.service.port }}
 
       pfcp:
-        addr: 127.0.0.1
+        addr: 0.0.0.0
       
       {{- .configuration.configuration | nindent 6 }}
 
