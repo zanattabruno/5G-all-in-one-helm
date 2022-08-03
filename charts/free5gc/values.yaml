@@ -23,6 +23,8 @@ global:
       type: ClusterIP
       port: "8000"
       nodePort: "30800"
+    nodeSelector:
+      kubernetes.io/hostname: worker2
   sbi:
     scheme: http
   amf:
@@ -34,6 +36,29 @@ global:
         nodeport: 31412
         protocol: SCTP
         type: NodePort
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  ausf:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  n3iwf:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  nssf:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  pcf:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  smf:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  udm:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  udr:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
   upf:      
     service:
       n4:
@@ -48,6 +73,11 @@ global:
         targetport: 8805
         protocol: UDP
         type: ClusterIP
+    nodeSelector:
+      kubernetes.io/hostname: worker2
+  webui:
+    nodeSelector:
+      kubernetes.io/hostname: worker2
 
         
   #Global network parametes
@@ -114,3 +144,5 @@ mongodb:
     type: ClusterIP
     port: 27017
     nodePort: "30017"
+  nodeSelector:
+    kubernetes.io/hostname: worker2

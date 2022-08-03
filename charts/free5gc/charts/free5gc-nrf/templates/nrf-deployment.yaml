@@ -91,6 +91,9 @@ spec:
           httpGet:
             scheme: {{ $.Values.global.sbi.scheme | quote | upper }}
             port: {{ $.Values.global.nrf.service.port }}
+      {{- if $.Values.global.nrf.nodeSelector }}
+      nodeSelector: {{- $.Values.global.nrf.nodeSelector | toYaml | nindent 8 }}
+      {{- end }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       nodeSelector:

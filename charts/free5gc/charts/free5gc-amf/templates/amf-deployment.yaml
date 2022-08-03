@@ -88,6 +88,9 @@ spec:
           name: {{ .volume.name }}
         resources:
             {{- toYaml .resources | nindent 12 }}
+{{- if $.Values.global.amf.nodeSelector }}
+      nodeSelector: {{- $.Values.global.amf.nodeSelector | toYaml | nindent 8 }}
+{{- end }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       nodeSelector:
