@@ -30,4 +30,23 @@ spec:
     {{- include "free5gc-smf.selectorLabels" $ | nindent 4 }}
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $.Values.global.smf.service.n4.name }}
+  labels:
+    project: {{ $.Values.global.projectName }}
+    nf: {{ .name }}
+spec:
+  type: {{ $.Values.global.smf.service.n4.type }}
+  ports:
+    - name: n4
+      port: {{ $.Values.global.smf.service.n4.port }}
+      targetPort: {{ $.Values.global.smf.service.n4.targetport }}
+      protocol: {{ $.Values.global.smf.service.n4.protocol }}
+  selector:
+    project: {{ $.Values.global.projectName }}
+    nf: {{ .name }}
 {{- end }}

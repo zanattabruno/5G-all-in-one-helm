@@ -51,6 +51,13 @@ global:
     nodeSelector:
       kubernetes.io/hostname: worker2
   smf:
+    service:
+      n4:
+        name: smf-n4
+        port: 8805
+        targetport: 8805
+        protocol: UDP
+        type: ClusterIP
     nodeSelector:
       kubernetes.io/hostname: worker2
   udm:
