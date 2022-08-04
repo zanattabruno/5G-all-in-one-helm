@@ -39,7 +39,7 @@ data:
       nrfUri: {{ $.Values.global.sbi.scheme }}://{{ $.Values.global.nrf.service.name }}:{{ $.Values.global.nrf.service.port }}
 
       pfcp:
-        addr: 0.0.0.0
+        addr: {{ include "free5gc-smf.fullname" $ }}-{{ .name }}-0
       
       {{- .configuration.configuration | nindent 6 }}
 

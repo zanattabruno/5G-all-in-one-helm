@@ -12,7 +12,7 @@
 #
 {{- with .Values.smf }}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "free5gc-smf.fullname" $ }}-{{ .name }}
   labels:
@@ -20,6 +20,7 @@ metadata:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 spec:
+  serviceName: sfm
   {{- if not .autoscaling.enabled }}
   replicas: {{ .replicaCount }}
   {{- end }}
