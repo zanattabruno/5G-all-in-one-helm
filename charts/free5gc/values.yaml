@@ -84,36 +84,6 @@ global:
     nodeSelector:
       #kubernetes.io/hostname: worker2
 
-        
-  #Global network parametes
-  n3network:
-    name: n3network
-    masterIf: ens192
-    subnetIP: 10.100.50.232
-    cidr: 29
-    gatewayIP: 10.100.50.238
-    excludeIP: 10.100.50.238
-  n4network:
-    name: n4network
-    masterIf: ens192
-    subnetIP: 10.100.50.240
-    cidr: 29
-    gatewayIP: 10.100.50.246
-    excludeIP: 10.100.50.246
-  n6network:
-    name: n6network
-    masterIf: ens192
-    subnetIP: 10.100.100.0
-    cidr: 24
-    gatewayIP: 10.100.100.1
-    excludeIP: 10.100.100.254
-  n9network:
-    name: n9network
-    masterIf: ens192
-    subnetIP: 10.100.50.224
-    cidr: 29
-    gatewayIP: 10.100.50.230
-    excludeIP: 10.100.50.230
 
 
 # These parameters can be used to enable/disable deployment of subcharts

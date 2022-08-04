@@ -77,7 +77,8 @@ gnb:
     requests:
       cpu: 250m
       memory: 256Mi
-  nodeSelector: {}
+  nodeSelector:
+    kubernetes.io/hostname: worker2
   tolerations: []
   affinity: {}
   

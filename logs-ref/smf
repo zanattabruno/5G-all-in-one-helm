@@ -1,28 +1,52 @@
-2022-08-03T21:53:41Z[36m [INFO][SMF][CFG] [0mSMF config version [1.0.2]
-2022-08-03T21:53:41Z[36m [INFO][SMF][CFG] [0mUE-Routing config version [1.0.1]
-2022-08-03T21:53:41Z[36m [INFO][SMF][Init] [0mSMF Log level is set to [info] level
-2022-08-03T21:53:41Z[36m [INFO][LIB][NAS] [0mset log level : info
-2022-08-03T21:53:41Z[36m [INFO][LIB][NAS] [0mset report call : false
-2022-08-03T21:53:41Z[36m [INFO][LIB][NGAP] [0mset log level : info
-2022-08-03T21:53:41Z[36m [INFO][LIB][NGAP] [0mset report call : false
-2022-08-03T21:53:41Z[36m [INFO][LIB][Aper] [0mset log level : info
-2022-08-03T21:53:41Z[36m [INFO][LIB][Aper] [0mset report call : false
-2022-08-03T21:53:41Z[36m [INFO][LIB][PFCP] [0mset log level : info
-2022-08-03T21:53:41Z[36m [INFO][LIB][PFCP] [0mset report call : false
-2022-08-03T21:53:41Z[36m [INFO][SMF][App] [0msmf
-2022-08-03T21:53:41Z[36m [INFO][SMF][App] [0mSMF version:
+2022-08-04T18:46:36Z[36m [INFO][SMF][CFG] [0mSMF config version [1.0.2]
+2022-08-04T18:46:36Z[36m [INFO][SMF][CFG] [0mUE-Routing config version [1.0.1]
+2022-08-04T18:46:36Z[36m [INFO][SMF][Init] [0mSMF Log level is set to [info] level
+2022-08-04T18:46:36Z[36m [INFO][LIB][NAS] [0mset log level : info
+2022-08-04T18:46:36Z[36m [INFO][LIB][NAS] [0mset report call : false
+2022-08-04T18:46:36Z[36m [INFO][LIB][NGAP] [0mset log level : info
+2022-08-04T18:46:36Z[36m [INFO][LIB][NGAP] [0mset report call : false
+2022-08-04T18:46:36Z[36m [INFO][LIB][Aper] [0mset log level : info
+2022-08-04T18:46:36Z[36m [INFO][LIB][Aper] [0mset report call : false
+2022-08-04T18:46:36Z[36m [INFO][LIB][PFCP] [0mset log level : info
+2022-08-04T18:46:36Z[36m [INFO][LIB][PFCP] [0mset report call : false
+2022-08-04T18:46:36Z[36m [INFO][SMF][App] [0msmf
+2022-08-04T18:46:36Z[36m [INFO][SMF][App] [0mSMF version:
 free5GC version: v3.1.1
 build time:      2022-04-28T12:50:59Z
 commit hash:     84c979a3
 commit time:     2022-04-09T08:38:26Z
 go version:      go1.14.4 linux/amd64
-2022-08-03T21:53:41Z[36m [INFO][SMF][CTX] [0msmfconfig Info: Version[1.0.2] Description[SMF initial local configuration]
-2022-08-03T21:53:41Z[36m [INFO][SMF][CTX] [0mEndpoints: [10.100.50.233]
-2022-08-03T21:53:41Z[36m [INFO][SMF][Init] [0mServer started
-2022-08-03T21:53:41Z[36m [INFO][SMF][Init] [0mSMF Registration to NRF {f8ff3c91-87bc-4171-accd-4b53b1065022 SMF REGISTERED 0 0xc00009c340 0xc00009c380 [] []   [smf-nsmf] [] <nil> [] [] <nil> 0 0 0 area1 <nil> <nil> <nil> <nil> 0xc0000ac200 <nil> <nil> <nil> <nil> <nil> map[] <nil> false 0xc00009c1c0 false false []}
-2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mListen on 10.100.50.244:8805
-2022-08-03T21:53:41Z[36m [INFO][SMF][App] [0mSend PFCP Association Request to UPF[10.100.50.241]
-2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mIn HandlePfcpAssociationSetupResponse
-2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mHandle PFCP Association Setup Response with NodeID[10.100.50.241]
-2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mUPF(10.100.50.241)[{internet}] setup association
-2022-08-03T21:53:41Z[36m [INFO][LIB][PFCP] [0mRemove Request Transaction [1]
+2022-08-04T18:46:36Z[36m [INFO][SMF][CTX] [0msmfconfig Info: Version[1.0.2] Description[SMF initial local configuration]
+2022-08-04T18:46:36Z[36m [INFO][SMF][CTX] [0mEndpoints: [10.100.50.233]
+2022-08-04T18:46:36Z[36m [INFO][SMF][Init] [0mServer started
+2022-08-04T18:46:36Z[36m [INFO][SMF][Init] [0mSMF Registration to NRF {8d38cc83-718c-4adc-b039-15516fed97ca SMF REGISTERED 0 0xc0002c04a0 0xc0002c04e0 [] []   [smf-nsmf] [] <nil> [] [] <nil> 0 0 0 area1 <nil> <nil> <nil> <nil> 0xc00038b400 <nil> <nil> <nil> <nil> <nil> map[] <nil> false 0xc0002c0320 false false []}
+2022-08-04T18:46:36Z[36m [INFO][SMF][PFCP] [0mListen on 10.100.50.244:8805
+2022-08-04T18:46:36Z[36m [INFO][SMF][App] [0mSend PFCP Association Request to UPF[10.100.50.241]
+2022-08-04T18:46:36Z[36m [INFO][LIB][PFCP] [0mRemove Request Transaction [1]
+2022-08-04T18:46:36Z[36m [INFO][SMF][PFCP] [0mIn HandlePfcpAssociationSetupResponse
+2022-08-04T18:46:36Z[36m [INFO][SMF][PFCP] [0mHandle PFCP Association Setup Response with NodeID[10.100.50.241]
+2022-08-04T18:46:36Z[36m [INFO][SMF][PFCP] [0mUPF(10.100.50.241)[{internet}] setup association
+2022-08-04T18:49:53Z[36m [INFO][SMF][PduSess] [0mReceive Create SM Context Request
+2022-08-04T18:49:53Z[36m [INFO][SMF][PduSess] [0mIn HandlePDUSessionSMContextCreate
+2022-08-04T18:49:53Z[36m [INFO][SMF][PduSess] [0mSend NF Discovery Serving UDM Successfully
+2022-08-04T18:49:53Z[36m [INFO][SMF][CTX] [0mAllocated UE IP address: 10.1.0.1
+2022-08-04T18:49:53Z[36m [INFO][SMF][CTX] [0mSelected UPF: UPF
+2022-08-04T18:49:53Z[36m [INFO][SMF][PduSess] [0mUE[imsi-208930000000003] PDUSessionID[1] IP[10.1.0.1]
+2022-08-04T18:49:53Z[36m [INFO][SMF][GSM] [0mIn HandlePDUSessionEstablishmentRequest
+2022-08-04T18:49:53Z[36m [INFO][NAS][Convert] [0mProtocolOrContainerList:  [0xc0002c01e0 0xc0002c0260]
+2022-08-04T18:49:53Z[36m [INFO][SMF][GSM] [0mProtocol Configuration Options
+2022-08-04T18:49:53Z[36m [INFO][SMF][GSM] [0m&{[0xc0002c01e0 0xc0002c0260]}
+2022-08-04T18:49:53Z[36m [INFO][SMF][GSM] [0mDidn't Implement container type IPAddressAllocationViaNASSignallingUL
+2022-08-04T18:49:53Z[36m [INFO][SMF][PduSess] [0mPCF Selection for SMContext SUPI[imsi-208930000000003] PDUSessionID[1]
+2022-08-04T18:49:53Z[36m [INFO][SMF][PduSess] [0mSUPI[imsi-208930000000003] has no pre-config route
+2022-08-04T18:49:53Z[36m [INFO][SMF][Consumer] [0mSendNFDiscoveryServingAMF ok
+2022-08-04T18:49:54Z[36m [INFO][SMF][GIN] [0m| 201 |  10.233.110.212 | POST    | /nsmf-pdusession/v1/sm-contexts |
+2022-08-04T18:49:54Z[36m [INFO][LIB][PFCP] [0mRemove Request Transaction [2]
+2022-08-04T18:49:54Z[36m [INFO][SMF][PFCP] [0mIn HandlePfcpSessionEstablishmentResponse
+2022-08-04T18:49:54Z[36m [INFO][SMF][PduSess] [0mReceive Update SM Context Request
+2022-08-04T18:49:54Z[36m [INFO][SMF][PduSess] [0mIn HandlePDUSessionSMContextUpdate
+2022-08-04T18:49:54Z[36m [INFO][LIB][PFCP] [0mRemove Request Transaction [3]
+2022-08-04T18:49:54Z[36m [INFO][SMF][PFCP] [0mIn HandlePfcpSessionModificationResponse
+2022-08-04T18:49:54Z[36m [INFO][SMF][PduSess] [0m[SMF] PFCP Modification Resonse Accept
+2022-08-04T18:49:54Z[36m [INFO][SMF][PFCP] [0mPFCP Session Modification Success[1]
+2022-08-04T18:49:54Z[36m [INFO][SMF][GIN] [0m| 200 |  10.233.110.212 | POST    | /nsmf-pdusession/v1/sm-contexts/urn:uuid:6d574f1f-325c-4fba-bf00-fa577176fba3/modify |
