@@ -45,6 +45,7 @@ go version:      go1.14.4 linux/amd64
 2022-08-04T18:49:54Z[36m [INFO][SMF][PFCP] [0mIn HandlePfcpSessionEstablishmentResponse
 2022-08-04T18:49:54Z[36m [INFO][SMF][PduSess] [0mReceive Update SM Context Request
 2022-08-04T18:49:54Z[36m [INFO][SMF][PduSess] [0mIn HandlePDUSessionSMContextUpdate
+############ Stop Here ############
 2022-08-04T18:49:54Z[36m [INFO][LIB][PFCP] [0mRemove Request Transaction [3]
 2022-08-04T18:49:54Z[36m [INFO][SMF][PFCP] [0mIn HandlePfcpSessionModificationResponse
 2022-08-04T18:49:54Z[36m [INFO][SMF][PduSess] [0m[SMF] PFCP Modification Resonse Accept
