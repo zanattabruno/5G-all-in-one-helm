@@ -26,28 +26,29 @@ spec:
     - name: n4
       port: {{ $.Values.global.upf.service.n4.port }}
       targetPort: {{ $.Values.global.upf.service.n4.targetport }}
-      protocol: {{ $.Values.global.upf.service.n4.protocol }}
+      protocol: {{ $.Values.global.upf.service.n4.protocol }}  
+  clusterIP: None  
   selector:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 
 
----
-#TODO  Verify
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ $.Values.global.upf.service.n3.name }}
-  labels:
-    project: {{ $.Values.global.projectName }}
-    nf: {{ .name }}
-spec:
-  type: {{ $.Values.global.upf.service.n3.type }}
-  ports:
-    - name: n3
-      port: {{ $.Values.global.upf.service.n3.port }}
-      protocol: {{ $.Values.global.upf.service.n3.protocol }}
-  selector:
-    project: {{ $.Values.global.projectName }}
-    nf: {{ .name }}
-{{- end }}
+#---
+##TODO  Verify
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: {{ $.Values.global.upf.service.n3.name }}
+#  labels:
+#    project: {{ $.Values.global.projectName }}
+#    nf: {{ .name }}
+#spec:
+#  type: {{ $.Values.global.upf.service.n3.type }}
+#  ports:
+#    - name: n3
+#      port: {{ $.Values.global.upf.service.n3.port }}
+#      protocol: {{ $.Values.global.upf.service.n3.protocol }}
+#  selector:
+#    project: {{ $.Values.global.projectName }}
+#    nf: {{ .name }}
+#{{- end }}

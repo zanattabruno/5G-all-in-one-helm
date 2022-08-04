@@ -13,7 +13,7 @@
 {{- if eq .Values.global.userPlaneArchitecture "single" }}
 {{- with .Values.upf }}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "free5gc-upf.fullname" $ }}-{{ .name }}
   labels:
@@ -21,6 +21,7 @@ metadata:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 spec:
+  serviceName: {{ $.Values.global.upf.service.n4.name }}
   {{- if not .autoscaling.enabled }}
   replicas: {{ .replicaCount }}
   {{- end }}

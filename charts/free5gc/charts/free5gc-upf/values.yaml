@@ -62,7 +62,7 @@ upf:
     mount: /free5gc/config/
   service:
       n4:
-        name: upf-n4
+        name: upf-service
         port: 8805
         targetport: 8805
         protocol: UDP

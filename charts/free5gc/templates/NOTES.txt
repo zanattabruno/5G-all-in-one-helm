@@ -7,11 +7,11 @@
 # the text of which is available at https://github.com/Orange-OpenSource/towards5gs-helm/blob/main/LICENSE
 # or see the "LICENSE" file for more details.
 #
-# Author: Abderaouf KHICHANE, Ilhem FAJJARI
+Co-Author: Gustavo Zanatta Bruno
 # Software description: An open-source project providing Helm charts to deploy 5G components (Core + RAN) on top of Kubernetes
 #
 #
-# Visit the project at https://github.com/Orange-OpenSource/towards5gs-helm
+# Visit the project at https://github.com/zanattabruno/5G-all-in-one-helm
 #
 
 1. Get the list of created Pods by running:
