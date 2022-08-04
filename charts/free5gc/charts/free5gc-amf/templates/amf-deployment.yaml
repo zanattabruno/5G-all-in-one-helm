@@ -83,8 +83,6 @@ spec:
 {{- end }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      nodeSelector:
-        {{- toYaml .nodeSelector | nindent 8 }}
       affinity:
         {{- toYaml .affinity | nindent 8 }}
       tolerations:
