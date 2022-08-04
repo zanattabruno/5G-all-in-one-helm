@@ -1,0 +1,17 @@
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0mUPF log: /free5gc/free5gc-upfd/log/upf.log
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0mConfig: /free5gc/config/..2022_08_03_21_53_09.4135216957/upfcfg.yaml
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0mUPF config version [1.0.0]
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0mSet log level: info
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0mDNN routes added, main routing table:
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0mDstIp               Gateway        Iface     Priority RtProto   Type
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m169.254.1.1 /32     0.0.0.0        eth0      0        boot      unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m10.100.50.240 /29   0.0.0.0        n4        0        kernel    unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m10.100.50.232 /29   0.0.0.0        n3        0        kernel    unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m10.43.0.0 /24       0.0.0.0        n6        0        kernel    unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m10.1.0.0 /17        0.0.0.0        upfgtp    0        static    unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m0.0.0.0 /0          169.254.1.1    eth0      0        boot      unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m0.0.0.0 /0          10.100.50.238  n3        0        boot      unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m0.0.0.0 /0          10.43.0.55     n6        0        boot      unicast
+2022-08-03T21:53:17Z[36m [INFO][UPF][Util] [0m0.0.0.0 /0          10.100.50.246  n4        0        boot      unicast
+2022-08-03T21:53:41Z[36m [INFO][UPF][Util] [0m[PFCP] Handle PFCP association setup request
+2022-08-03T21:53:41Z[36m [INFO][UPF][Util] [0m[PFCP] Association Setup Response

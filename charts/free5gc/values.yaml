@@ -29,15 +29,13 @@ global:
     scheme: http
   amf:
     service:
-      ngap:
-        enabled: true
-        name: amf-n2
-        port: 38412
-        nodeport: 31412
-        protocol: SCTP
-        type: NodePort
+      name: amf-n2
+      port: 38412
+      targetport: 31412
+      protocol: SCTP
+      type: NodePort
     nodeSelector:
-      #kubernetes.io/hostname: worker2
+      kubernetes.io/hostname: worker2
   ausf:
     nodeSelector:
       #kubernetes.io/hostname: worker2

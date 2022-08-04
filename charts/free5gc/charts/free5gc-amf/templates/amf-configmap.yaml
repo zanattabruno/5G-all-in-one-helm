@@ -28,11 +28,7 @@ data:
         {{- .configuration.serviceNameList | nindent 8 }}
 
       ngapIpList:
-{{- if $.Values.global.amf.service.ngap.enabled }}
         - 0.0.0.0
-{{- else }}
-        - {{ $.Values.global.amf.n2if.ipAddress }}
-{{- end }}
       sbi:
         scheme: {{ $.Values.global.sbi.scheme }}
         registerIPv4: {{ .service.name }} # IP used to register to NRF

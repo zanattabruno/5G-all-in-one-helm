@@ -31,27 +31,23 @@ spec:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 
-{{- if $.Values.isNgapNeeded }}
-{{- if $.Values.global.amf.service.ngap.enabled }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $.Values.global.amf.service.ngap.name }}
+  name: {{ $.Values.global.amf.service.name }}
   labels:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 spec:
-  type: {{ $.Values.global.amf.service.ngap.type }}
+  type: {{ $.Values.global.amf.service.type }}
   ports:
     - name: n2
-      port: {{ $.Values.global.amf.service.ngap.port }}
-      nodePort: {{ $.Values.global.amf.service.ngap.nodeport }}
-      protocol: {{ $.Values.global.amf.service.ngap.protocol }}
+      port: {{ $.Values.global.amf.service.port }}
+      nodePort: {{ $.Values.global.amf.service.nodeport }}
+      protocol: {{ $.Values.global.amf.service.protocol }}
   selector:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
-{{- end }}
-{{- end }}
 
 {{- end }}

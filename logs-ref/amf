@@ -1,0 +1,20 @@
+2022-08-03T21:53:40Z[36m [INFO][AMF][CFG] [0mconfig version [1.0.3]
+2022-08-03T21:53:40Z[36m [INFO][AMF][Init] [0mAMF Log level is set to [info] level
+2022-08-03T21:53:40Z[36m [INFO][LIB][NAS] [0mset log level : info
+2022-08-03T21:53:40Z[36m [INFO][LIB][NAS] [0mset report call : false
+2022-08-03T21:53:40Z[36m [INFO][LIB][NGAP] [0mset log level : info
+2022-08-03T21:53:40Z[36m [INFO][LIB][NGAP] [0mset report call : false
+2022-08-03T21:53:40Z[36m [INFO][LIB][FSM] [0mset log level : info
+2022-08-03T21:53:40Z[36m [INFO][LIB][FSM] [0mset report call : false
+2022-08-03T21:53:40Z[36m [INFO][LIB][Aper] [0mset log level : info
+2022-08-03T21:53:40Z[36m [INFO][LIB][Aper] [0mset report call : false
+2022-08-03T21:53:40Z[36m [INFO][AMF][App] [0mamf
+2022-08-03T21:53:40Z[36m [INFO][AMF][App] [0mAMF version:
+free5GC version: v3.1.1
+build time:      2022-04-28T12:50:19Z
+commit hash:     03f9848e
+commit time:     2022-04-07T14:37:30Z
+go version:      go1.14.4 linux/amd64
+2022-08-03T21:53:40Z[36m [INFO][AMF][Init] [0mServer started
+2022-08-03T21:53:40Z[36m [INFO][AMF][Util] [0mamfconfig Info: Version[1.0.3] Description[AMF initial local configuration]
+2022-08-03T21:53:40Z[36m [INFO][AMF][NGAP] [0mListen on 10.100.50.249:38412

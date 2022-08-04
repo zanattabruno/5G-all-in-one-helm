@@ -1,0 +1,28 @@
+2022-08-03T21:53:41Z[36m [INFO][SMF][CFG] [0mSMF config version [1.0.2]
+2022-08-03T21:53:41Z[36m [INFO][SMF][CFG] [0mUE-Routing config version [1.0.1]
+2022-08-03T21:53:41Z[36m [INFO][SMF][Init] [0mSMF Log level is set to [info] level
+2022-08-03T21:53:41Z[36m [INFO][LIB][NAS] [0mset log level : info
+2022-08-03T21:53:41Z[36m [INFO][LIB][NAS] [0mset report call : false
+2022-08-03T21:53:41Z[36m [INFO][LIB][NGAP] [0mset log level : info
+2022-08-03T21:53:41Z[36m [INFO][LIB][NGAP] [0mset report call : false
+2022-08-03T21:53:41Z[36m [INFO][LIB][Aper] [0mset log level : info
+2022-08-03T21:53:41Z[36m [INFO][LIB][Aper] [0mset report call : false
+2022-08-03T21:53:41Z[36m [INFO][LIB][PFCP] [0mset log level : info
+2022-08-03T21:53:41Z[36m [INFO][LIB][PFCP] [0mset report call : false
+2022-08-03T21:53:41Z[36m [INFO][SMF][App] [0msmf
+2022-08-03T21:53:41Z[36m [INFO][SMF][App] [0mSMF version:
+free5GC version: v3.1.1
+build time:      2022-04-28T12:50:59Z
+commit hash:     84c979a3
+commit time:     2022-04-09T08:38:26Z
+go version:      go1.14.4 linux/amd64
+2022-08-03T21:53:41Z[36m [INFO][SMF][CTX] [0msmfconfig Info: Version[1.0.2] Description[SMF initial local configuration]
+2022-08-03T21:53:41Z[36m [INFO][SMF][CTX] [0mEndpoints: [10.100.50.233]
+2022-08-03T21:53:41Z[36m [INFO][SMF][Init] [0mServer started
+2022-08-03T21:53:41Z[36m [INFO][SMF][Init] [0mSMF Registration to NRF {f8ff3c91-87bc-4171-accd-4b53b1065022 SMF REGISTERED 0 0xc00009c340 0xc00009c380 [] []   [smf-nsmf] [] <nil> [] [] <nil> 0 0 0 area1 <nil> <nil> <nil> <nil> 0xc0000ac200 <nil> <nil> <nil> <nil> <nil> map[] <nil> false 0xc00009c1c0 false false []}
+2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mListen on 10.100.50.244:8805
+2022-08-03T21:53:41Z[36m [INFO][SMF][App] [0mSend PFCP Association Request to UPF[10.100.50.241]
+2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mIn HandlePfcpAssociationSetupResponse
+2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mHandle PFCP Association Setup Response with NodeID[10.100.50.241]
+2022-08-03T21:53:41Z[36m [INFO][SMF][PFCP] [0mUPF(10.100.50.241)[{internet}] setup association
+2022-08-03T21:53:41Z[36m [INFO][LIB][PFCP] [0mRemove Request Transaction [1]
