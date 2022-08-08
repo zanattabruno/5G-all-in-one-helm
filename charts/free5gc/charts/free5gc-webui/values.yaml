@@ -87,7 +87,6 @@ webui:
     timeoutSeconds: 10
     failureThreshold: 3
     successThreshold: 1
-  nodeSelector: {}
   tolerations: []
   affinity: {}
   autoscaling:

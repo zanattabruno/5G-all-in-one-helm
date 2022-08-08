@@ -91,8 +91,8 @@ spec:
             port: {{ .service.port }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      {{- if $.Values.global.n3iwf.nodeSelector }}
-      nodeSelector: {{- $.Values.global.n3iwf.nodeSelector | toYaml | nindent 8 }}
+      {{- if $.Values.global.webui.nodeSelector }}
+      nodeSelector: {{- $.Values.global.webui.nodeSelector | toYaml | nindent 8 }}
       {{- end }}
       affinity:
         {{- toYaml .affinity | nindent 8 }}
