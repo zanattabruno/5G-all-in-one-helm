@@ -28,7 +28,7 @@ data:
         {{- .configuration.serviceNameList | nindent 8 }}
 
       ngapIpList:
-        - 0.0.0.0
+        - {{ include "free5gc-amf.fullname" $ }}-{{ .name }}-0
       sbi:
         scheme: {{ $.Values.global.sbi.scheme }}
         registerIPv4: {{ .service.name }} # IP used to register to NRF

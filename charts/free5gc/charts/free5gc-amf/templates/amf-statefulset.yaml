@@ -10,32 +10,32 @@
 # Author: Abderaouf KHICHANE, Ilhem FAJJARI, Ayoub BOUSSELMI
 # Software description: An open-source project providing Helm charts to deploy 5G components (Core + RAN) on top of Kubernetes
 #
-{{- with .Values.smf }}
+{{- with .Values.amf }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "free5gc-smf.fullname" $ }}-{{ .name }}
+  name: {{ include "free5gc-amf.fullname" $ }}-{{ .name }}
   labels:
-    {{- include "free5gc-smf.labels" $ | nindent 4 }}
+    {{- include "free5gc-amf.labels" $ | nindent 4 }}
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 spec:
-  serviceName: {{ include "free5gc-smf.fullname" $ }}
+  serviceName: {{ $.Values.global.amf.service.n2.name }}
   {{- if not .autoscaling.enabled }}
   replicas: {{ .replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "free5gc-smf.selectorLabels" $ | nindent 6 }}
+      {{- include "free5gc-amf.selectorLabels" $ | nindent 6 }}
       project: {{ $.Values.global.projectName }}
       nf: {{ .name }}
   template:
     metadata:
       annotations:
-        {{- include "free5gc-smf.smfAnnotations" $ | nindent 8 }}       
-        checksum/config: {{ include (print $.Template.BasePath "/smf-configmap.yaml") $ | sha256sum }}
+        {{- include "free5gc-amf.amfAnnotations" $ | nindent 8 }}
+        checksum/config: {{ include (print $.Template.BasePath "/amf-configmap.yaml") $ | sha256sum }}
       labels:
-        {{- include "free5gc-smf.selectorLabels" $ | nindent 8 }}
+        {{- include "free5gc-amf.selectorLabels" $ | nindent 8 }}
         project: {{ $.Values.global.projectName }}
         nf: {{ .name }}
     spec:
@@ -51,8 +51,8 @@ spec:
         env:
         - name: DEPENDENCIES
           value: {{ $.Values.global.sbi.scheme }}://{{ $.Values.global.nrf.service.name }}:{{ $.Values.global.nrf.service.port }}
-        command: ['sh', '-c', 'set -x; for dependency in $DEPENDENCIES; do while [ $(curl --insecure --connect-timeout 1 -s -o /dev/null -w "%{http_code}" $dependency) -ne 200 ]; do echo waiting for dependencies; sleep 1; done; done;']
-
+        command: ['sh', '-c', 'set -x; for dependency in $DEPENDENCIES; do while [ $(curl --insecure --connect-timeout 1 -s -o /dev/null -w "%{http_code}" $dependency) -ne 200 ]; do echo waiting for dependencies; sleep 1; done; done;']   
+      
       containers:
       - name: {{ .name }}
         image: {{ .image.name }}:{{ .image.tag | default $.Chart.AppVersion }}
@@ -60,13 +60,17 @@ spec:
         securityContext:
             {{- toYaml .securityContext | nindent 12 }}
         ports:
-        - name: nsmf
+        - containerPort: {{ .service.port }}
+        ports:
+        - name: namf
           containerPort: {{ .service.port }}
-        - name: n4
-          containerPort: 8805
-          protocol: UDP
-        command: ["./smf"]
-        args: ["-c", "../config/smfcfg.yaml", "-u", "../config/uerouting.yaml"]
+        {{- if $.Values.isNgapNeeded }}
+        - name: n2
+          containerPort: {{ $.Values.global.amf.service.ngap.port }}
+          protocol: {{ $.Values.global.amf.service.ngap.protocol }}
+        {{- end }}
+        command: ["./amf"]
+        args: ["-c", "../config/amfcfg.yaml"]
         env:
           - name: GIN_MODE
             value: release
@@ -75,11 +79,11 @@ spec:
           name: {{ .volume.name }}
         resources:
             {{- toYaml .resources | nindent 12 }}
+{{- if $.Values.global.amf.nodeSelector }}
+      nodeSelector: {{- $.Values.global.amf.nodeSelector | toYaml | nindent 8 }}
+{{- end }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      {{- if $.Values.global.smf.nodeSelector }}
-      nodeSelector: {{- $.Values.global.smf.nodeSelector | toYaml | nindent 8 }}
-      {{- end }}
       affinity:
         {{- toYaml .affinity | nindent 8 }}
       tolerations:
@@ -91,9 +95,4 @@ spec:
           sources:
           - configMap:
               name: {{ .configmap.name }}
-              items:
-              - key: smfcfg.yaml
-                path: smfcfg.yaml
-              - key: uerouting.yaml
-                path: uerouting.yaml
 {{- end }}

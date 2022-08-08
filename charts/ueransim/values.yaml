@@ -31,6 +31,13 @@ global:
   #  cidr: 29
   #  gatewayIP: 10.100.50.238
   #  excludeIP: 10.100.50.238
+  gnb:
+    service:
+      n2:
+        name: gnb-n2-service
+        port: 8805
+        protocol: UDP
+        type: ClusterIP
 
 
 projectName: ueransim
@@ -54,13 +61,13 @@ gnb:
     protocol: UDP
 
   n2if:  # NGAP
-    ipAddress: 0.0.0.0
+    ipAddress: ran-ueransim-gnb-0
   n3if:  # GTP-U
-    ipAddress: 0.0.0.0
+    ipAddress: ran-ueransim-gnb-0
 
   amf:
     n2if:  # NGAP
-      ipAddress: amf-n2
+      ipAddress: core-free5gc-amf-amf-0.amf-service
       port: 38412
     service:
       ngap:

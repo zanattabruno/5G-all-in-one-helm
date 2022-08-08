@@ -29,3 +29,21 @@ spec:
     component: {{ .Values.gnb.name }}
 {{- end }}
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $.Values.global.gnb.service.n2.name }}
+  labels:
+    app: {{ .Values.projectName }}
+    component: {{ .Values.gnb.name }}
+spec:
+  type: {{ $.Values.global.gnb.service.n2.type }}
+  ports:
+    - name: n2
+      port: {{ $.Values.global.gnb.service.n2.port }}
+      #protocol: {{ $.Values.global.gnb.service.n2.protocol }}  
+  clusterIP: None  
+  selector:
+    app: {{ .Values.projectName }}
+    component: {{ .Values.gnb.name }}

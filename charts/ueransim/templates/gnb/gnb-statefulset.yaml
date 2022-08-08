@@ -13,7 +13,7 @@
 {{- with .Values.gnb }}
 {{- if and .enabled }}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "ueransim.fullname" $ }}-{{ .name }}
   labels:
@@ -21,6 +21,7 @@ metadata:
     app: {{ $.Values.projectName }}
     component: {{ .name }}
 spec:
+  serviceName: {{ $.Values.global.gnb.service.n2.name }}
   selector:
     matchLabels:
       {{- include "ueransim.selectorLabels" $ | nindent 6 }}

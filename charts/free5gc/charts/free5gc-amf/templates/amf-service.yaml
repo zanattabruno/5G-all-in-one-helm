@@ -35,19 +35,19 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $.Values.global.amf.service.name }}
+  name: {{ $.Values.global.amf.service.n2.name }}
   labels:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 spec:
-  type: {{ $.Values.global.amf.service.type }}
+  type: {{ $.Values.global.amf.service.n2.type }}
   ports:
     - name: n2
-      port: {{ $.Values.global.amf.service.port }}
-      nodePort: {{ $.Values.global.amf.service.nodeport }}
-      protocol: {{ $.Values.global.amf.service.protocol }}
+      port: {{ $.Values.global.amf.service.n2.port }}
+      targetPort: {{ $.Values.global.amf.service.n2.targetport }}
+      protocol: {{ $.Values.global.amf.service.n2.protocol }}  
+  clusterIP: None  
   selector:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
-
 {{- end }}

@@ -34,6 +34,12 @@ global:
       targetport: 31412
       protocol: SCTP
       type: NodePort
+      n2:
+        name: amf-service
+        port: 8805
+        targetport: 8805
+        protocol: UDP
+        type: ClusterIP
     nodeSelector:
       kubernetes.io/hostname: worker2
   ausf:
@@ -41,7 +47,7 @@ global:
       #kubernetes.io/hostname: worker2
   n3iwf:
     nodeSelector:
-      #kubernetes.io/hostname: worker2
+      kubernetes.io/hostname: worker2
   nssf:
     nodeSelector:
       #kubernetes.io/hostname: worker2
@@ -57,7 +63,7 @@ global:
         protocol: UDP
         type: ClusterIP
     nodeSelector:
-      #kubernetes.io/hostname: worker2
+      kubernetes.io/hostname: worker2
   udm:
     nodeSelector:
       #kubernetes.io/hostname: worker2
@@ -79,7 +85,7 @@ global:
         protocol: UDP
         type: ClusterIP
     nodeSelector:
-      #kubernetes.io/hostname: worker2
+      kubernetes.io/hostname: worker2
   webui:
     nodeSelector:
       #kubernetes.io/hostname: worker2
