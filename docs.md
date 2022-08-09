@@ -96,18 +96,24 @@ The WEBUI can is exposed with a Kubernetes service with `nodePort=30500`. So you
 
 For adding a new subscriber, please refer to the [Free5GC documentation](https://github.com/free5gc/free5gc/wiki/New-Subscriber-via-webconsole#4-use-browser-to-connect-to-webconsole). Initially, UE is configured with Free5GC default values.
 
-#### Test with UERANSIM
-##### Install the UERANSIM Helm chart
+#### RAN deployment
+
+You can choose between two RAN open source projects to deploy 
+[UERANSIM](https://github.com/aligungr/UERANSIM) or [my5G-RANTester](https://github.com/my5G/my5G-RANTester).
+
+
+##### Deploy of UERAMSIM 
+###### Install the UERANSIM Helm chart
 On the [charts](../../charts) directory, run:
 ```console
 helm -n <namespace> install <UERANSIM-release-name> ./ueransim/
 ```
-##### Check the state of the created pods
+###### Check the state of the created pods
 ```console
 kubectl -n <namespace> get pods -l "app=ueransim"
 ```
 
-##### Test with the TUN interface
+###### Test with the TUN interface
 Once the UERANSIM components created, you can access to the UE pod by running:
 ```console
 kubectl -n <namespace> exec -it <ue-pod-name> -- bash
@@ -126,6 +132,38 @@ ping -I uesimtun0 www.google.com
 traceroute -i uesimtun0 www.google.com
 curl --interface uesimtun0 www.google.com
 ```
+##### Deploy of my5G-RANTester 
+
+###### Apply my5G-RANTeste Helm chart
+On the [tester](/tester) directory, run:
+```console
+kubeclt apply -f . -n <namespace>
+```
+###### Check the state of the created pods
+```console
+kubectl -n <namespace> get pods -l "app=tester"
+```
+###### Test with the TUN interface
+Once the UERANSIM components created, you can access to the UE pod by running:
+```console
+kubectl -n <namespace> exec -it <ue-pod-name> -- bash
+```
+Then, you can use the created TUN interface for more advanced testing. check this [link](hhttps://github.com/my5G/my5G-RANTester) for more details.
+```console
+# Run this inside the container
+ip address 
+...
+5: uetun1: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 500
+    link/none 
+    inet 10.1.0.1/32 scope global uetun1
+       valid_lft forever preferred_lft forever
+
+ping -I uetun1 www.google.com
+traceroute -i uetun1 www.google.com
+curl --interface uetun1 www.google.com
+```
+
+
 
 ## Advanced configuration
 Check the readme of each Helm chart in the project to list configurable parameters.
