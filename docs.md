@@ -8,7 +8,7 @@ Before going to use our Helm charts, you have to:
 
 ### Create a Kubernetes cluster
 The are many solutions for the creation of a Kubernetes cluster. Feel free to visit this [page](https://kubernetes.io/fr/docs/setup/pick-right-solution/) to discover a part of these solutions.
-We recommend using [Kubespray](https://github.com/kubernetes-sigs/kubespray) and the Calico network plugin. To enable UPF IP forwarding, change calico_allow_ip_forwarding to true in this [config](https://github.com/kubernetes-sigs/kubespray/blob/master/roles/network_plugin/calico/defaults/main.yml). And enable HELM changing helm_enabled to true in this [config](https://github.com/kubernetes-sigs/kubespray/blob/master/inventory/sample/group_vars/k8s_cluster/addons.yml)
+We recommend using [Kubespray](https://github.com/kubernetes-sigs/kubespray) and the Calico network plugin. To enable UPF IP forwarding, change calico_allow_ip_forwarding to true in this [config](https://github.com/kubernetes-sigs/kubespray/blob/master/roles/network_plugin/calico/defaults/main.yml). And enable HELM changing helm_enabled to true in this [config](https://github.com/kubernetes-sigs/kubespray/blob/master/inventory/sample/group_vars/k8s_cluster/addons.yml).
 If you don't dispose yet of a Kubernetes cluster, we recommend you to use [Kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/) regarding to its simplicity.
 
 ### Install Helm
