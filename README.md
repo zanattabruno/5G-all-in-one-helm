@@ -9,7 +9,7 @@ Please consult this [link](/motivations.md) to see the motivations that have led
 Please consult this [link](/docs.md) to see the basic documentation.
 
 ## Acknowledgement
-Thanks to both Orange towards5GS, Free5GC and UERANSIM teams for their great efforts.
+Thanks to both Orange towards5GS, Free5GC, my5G-RANTester and UERANSIM teams for their great efforts.
 
 ## License
 ***5G-all-in-one-helm*** is under [Apache 2.0](./LICENSE) license.
