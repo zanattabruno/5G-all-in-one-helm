@@ -10,10 +10,10 @@ data:
   config.yml: |
     gnodeb:
       controlif:
-        ip: tester-old-0
+        ip: tester-0
         port: 9487
       dataif:
-        ip: tester-old-0
+        ip: tester-0
         port: 2152
       plmnlist:
         mcc: "208"

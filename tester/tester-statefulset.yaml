@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: tester-old
+  name: tester
   labels:
     app.kubernetes.io/name: tester
     app.kubernetes.io/instance: release-name
@@ -26,10 +26,6 @@ spec:
         app: tester
         component: ue
     spec:
-      imagePullSecrets:
-        []
-      securityContext:
-        {}
       containers:
       - image: baleeiro17/my5gtester 
         name: tester
@@ -40,10 +36,10 @@ spec:
         securityContext:
           capabilities:
             add: ["NET_ADMIN"]
-        command: ["tail"]
-        args: ["-f", "/etc/passwd"]
-        # command: ["./app"]
-        #args: ["ue"]
+        #command: ["tail"]
+        #args: ["-f", "/etc/passwd"]
+        command: ["./app"]
+        args: ["ue"]
         # args: ["ue-latency-interval", "-t", "20"]
         #args: ["amf-load-loop", "-n", "1", "-t", "20"]
         volumeMounts:
@@ -59,7 +55,7 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       nodeSelector:
-        kubernetes.io/hostname: worker2
+        kubernetes.io/hostname: master1
       volumes:
       - name: tester-volume
         configMap:
