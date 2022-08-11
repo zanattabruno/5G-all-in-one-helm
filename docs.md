@@ -30,8 +30,8 @@ Refer to this [link](https://helm.sh/docs/intro/install/) to view all possible i
  - A Kubernetes cluster supporting SCTP
  - Kubernetes worker nodes with kernel 5.0.0-23-generic and containing gtp5g kernel module ([required for the Free5GC UPF element](https://github.com/free5gc/free5gc/wiki/Installation#a-prerequisites)).
  - [Helm3](https://helm.sh/docs/intro/install/).
- - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) (optional).
  - A Persistent Volume (size 8Gi). 
+ - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) (optional).
 
 ### Steps
 
