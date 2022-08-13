@@ -34,9 +34,6 @@ global:
       targetport: 31412
       protocol: SCTP
       type: NodePort
-    nodeSelector:
-      kubernetes.io/hostname: master1
-
 initcontainers:
   curl:
     registry: towards5gs

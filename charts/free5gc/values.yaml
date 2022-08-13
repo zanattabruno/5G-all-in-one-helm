@@ -24,7 +24,7 @@ global:
       port: "8000"
       nodePort: "30800"
     nodeSelector:
-      #kubernetes.io/hostname: worker2
+      ##kubernetes.io/hostname: worker2
   sbi:
     scheme: http
   amf:
@@ -41,19 +41,19 @@ global:
         protocol: UDP
         type: ClusterIP
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   ausf:
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   n3iwf:
     nodeSelector:
-      kubernetes.io/hostname: worker2
+      #kubernetes.io/hostname: worker2
   nssf:
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   pcf:
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   smf:
     service:
       n4:
@@ -63,13 +63,13 @@ global:
         protocol: UDP
         type: ClusterIP
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   udm:
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   udr:
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   upf:      
     service:
       n4:
@@ -85,10 +85,10 @@ global:
         protocol: UDP
         type: ClusterIP
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
   webui:
     nodeSelector:
-      kubernetes.io/hostname: worker1
+      #kubernetes.io/hostname: worker1
 
 
 
@@ -126,4 +126,4 @@ mongodb:
     port: 27017
     nodePort: "30017"
   nodeSelector:
-    #kubernetes.io/hostname: worker2
+    ##kubernetes.io/hostname: worker2
