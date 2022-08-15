@@ -30,7 +30,7 @@ spec:
       - image: baleeiro17/my5gtester 
         name: tester
         ports:
-        - name: gnb-ue
+        - name: n1-ue
           containerPort: 4997
           protocol: UDP
         securityContext:
