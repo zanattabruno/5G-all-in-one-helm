@@ -69,8 +69,8 @@ gnb:
     requests:
       cpu: 250m
       memory: 256Mi
-  nodeSelector:
-    kubernetes.io/hostname: worker2
+  #nodeSelector:
+  #  kubernetes.io/hostname: worker2
   tolerations: []
   affinity: {}
   
@@ -118,8 +118,8 @@ ue:
     requests:
       cpu: 120m
       memory: 128Mi
-  nodeSelector:
-    kubernetes.io/hostname: worker2
+  #nodeSelector:
+  #  kubernetes.io/hostname: worker2
   tolerations: []
   affinity: {}
 
