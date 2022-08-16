@@ -1,0 +1,56 @@
+#
+# Software Name : 5G-all-in-one-helm
+# SPDX-FileCopyrightText: Copyright (c) 2022
+# SPDX-License-Identifier: Apache-2.0
+#
+# This software is distributed under the Apache License 2.0,
+# the text of which is available at todo
+# or see the "LICENSE" file for more details.
+#
+# Author: Gustavo Zanatta Bruno
+# Software description: An open-source project providing Helm charts to deploy 5G components (Core + RAN) on top of Kubernetes
+#
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $.Values.configmap.name }}
+  labels:
+    app: {{ $.Values.projectName }}
+    component: {{ $.Values.name }}
+data:
+  config.yaml: |
+    gnodeb:
+      controlif:
+        ip: {{ include "rantester.fullname" . }}-0
+        port: 9487
+      dataif:
+        ip: {{ include "rantester.fullname" . }}-0
+        port: 2152
+      plmnlist:
+        mcc: "208"
+        mnc: "93"
+        tac: "000001"
+        gnbid: "000002"
+      slicesupportlist:
+        sst: "01"
+        sd: "000001"
+    ue:
+      msin: "0000000003"
+      key: "8baf473f2f8fd09487cccbd7097c6862"
+      opc: "8e27b6af0e692e750f32667a3b14605d"
+      amf: "8000"
+      sqn: "000000000024"
+      dnn: "internet"
+      hplmn:
+        mcc: "208"
+        mnc: "93"
+      snssai:
+        sst: 1
+        sd: "010203"
+    amfif:
+      ip: core-free5gc-amf-amf-0.amf-service
+        #      ip: amf-namf
+        #      ip: "10.100.50.249"
+      port: 38412 
+    logs:
+      level: 4

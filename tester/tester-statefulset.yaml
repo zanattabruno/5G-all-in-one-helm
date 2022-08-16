@@ -55,7 +55,7 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       nodeSelector:
-        kubernetes.io/hostname: master1
+        #kubernetes.io/hostname: master1
       volumes:
       - name: tester-volume
         configMap:
