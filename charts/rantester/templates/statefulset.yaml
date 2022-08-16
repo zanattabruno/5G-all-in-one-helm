@@ -21,7 +21,7 @@ metadata:
   labels:
     {{- include "rantester.labels" . | nindent 4 }}
 spec:
-  serviceName: {{ include "rantester.fullname" . }}
+  serviceName: {{ include "rantester.fullname" . }}-service
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
@@ -37,19 +37,20 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          #image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: {{ .Values.image.repository }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: gnb-ue
+            - name: n1-ue
               containerPort: 4997
               protocol: UDP
           securityContext:
             capabilities:
               add: ["NET_ADMIN"]
-          command: ["sleep"]
-          args: ["1000000"]
-          #command: ["./app"]
-          #args: ["ue"]
+          #command: ["sleep"]
+          #args: ["1000000"]
+          command: ["./app"]
+          args: ["gnb"]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

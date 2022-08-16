@@ -17,16 +17,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "rantester.fullname" . }}
+  name: {{ include "rantester.fullname" . }}-service
   labels:
     {{- include "rantester.labels" . | nindent 4 }}
 spec:
   clusterIP: None
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: 4997
+    - name: n1
+      port: {{ .Values.service.port }}
+      targetPort: n1-ue
       protocol: UDP
-      name: n1
   selector:
     {{- include "rantester.selectorLabels" . | nindent 4 }}

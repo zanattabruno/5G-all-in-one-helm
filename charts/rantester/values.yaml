@@ -21,10 +21,10 @@ name: rantester
 image:
   repository: baleeiro17/my5gtester
   pullPolicy: IfNotPresent
-  tag: "latest"
+  #tag: "latest"
 service:
   type: ClusterIP
-  port: 8805
+  port: 4997
 
 
 resources:
@@ -47,4 +47,4 @@ configmap:
   name: tester-configmap
 
 
-nodeSelector:
+#nodeSelector:
