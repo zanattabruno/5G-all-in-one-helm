@@ -10,7 +10,7 @@ metadata:
     app: tester 
     component: ue
 spec: 
-  serviceName: tester-n2-service
+  serviceName: tester-n1-service
   selector:
     matchLabels:
       app.kubernetes.io/name: tester
