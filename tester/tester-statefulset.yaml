@@ -54,7 +54,7 @@ spec:
               memory: 100Mi
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      nodeSelector:
+      #nodeSelector:
         #kubernetes.io/hostname: master1
       volumes:
       - name: tester-volume
