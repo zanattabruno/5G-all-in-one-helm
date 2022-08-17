@@ -50,7 +50,7 @@ spec:
           #command: ["sleep"]
           #args: ["1000000"]
           command: ["./app"]
-          args: ["gnb"]
+          args: ["ue"]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

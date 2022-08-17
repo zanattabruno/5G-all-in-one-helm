@@ -18,7 +18,7 @@ metadata:
     app: {{ $.Values.projectName }}
     component: {{ $.Values.name }}
 data:
-  config.yaml: |
+  config.yml: |
     gnodeb:
       controlif:
         ip: {{ include "rantester.fullname" . }}-0
