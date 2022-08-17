@@ -1,0 +1,62 @@
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: tester
+  labels:
+    app.kubernetes.io/name: tester
+    app.kubernetes.io/instance: release-name
+    app: tester 
+    component: ue
+spec: 
+  serviceName: tester-n1-service
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tester
+      app.kubernetes.io/instance: release-name
+      app: tester
+      component: ue
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tester
+        app.kubernetes.io/instance: release-name
+        app: tester
+        component: ue
+    spec:
+      containers:
+      - image: baleeiro17/my5gtester 
+        name: tester
+        ports:
+        - name: n1-ue
+          containerPort: 4997
+          protocol: UDP
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+        #command: ["tail"]
+        #args: ["-f", "/etc/passwd"]
+        command: ["./app"]
+        args: ["ue"]
+        # args: ["ue-latency-interval", "-t", "20"]
+        #args: ["amf-load-loop", "-n", "1", "-t", "20"]
+        volumeMounts:
+        - mountPath: /workspace/my5G-RANTester/config
+          name: tester-volume
+        resources:
+            limits:
+              cpu: 400m
+              memory: 400Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      #nodeSelector:
+        #kubernetes.io/hostname: master1
+      volumes:
+      - name: tester-volume
+        configMap:
+          name: tester-configmap
