@@ -22,12 +22,12 @@ If you want to run connectivity tests manually, follow:
 1. Get the UE Pod name by running:
   export POD_NAME=$(kubectl get pods --namespace {{ $.Release.Namespace }} -l "component={{ .Values.name }}" -o jsonpath="{.items[0].metadata.name}")
 
-2. Check that uesimtun0 interface has been created by running these commands:
+2. Check that uetun1 interface has been created by running these commands:
   kubectl --namespace {{ $.Release.Namespace }} logs $POD_NAME
   kubectl --namespace {{ $.Release.Namespace }} exec -it $POD_NAME -- ip address
 
 3. Try to access internet from the UE by running:
-  kubectl --namespace {{ $.Release.Namespace }} exec -it $POD_NAME -- ping -I uesimtun0 www.google.com
-  kubectl --namespace {{ $.Release.Namespace }} exec -it $POD_NAME -- curl --interface uesimtun0 www.google.com
-  kubectl --namespace {{ $.Release.Namespace }} exec -it $POD_NAME -- traceroute -i uesimtun0 www.google.com
+  kubectl --namespace {{ $.Release.Namespace }} exec -it $POD_NAME -- ping -I uetun1 www.google.com
+  kubectl --namespace {{ $.Release.Namespace }} exec -it $POD_NAME -- curl --interface uetun1 www.google.com
+  kubectl --namespace {{ $.Release.Namespace }} exec -it $POD_NAME -- traceroute -i uetun1 www.google.com
 
