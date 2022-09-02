@@ -7,6 +7,7 @@ Please consult this [link](/motivations.md) to see the motivations that have led
 
 ## Documentation
 Please consult this [link](/docs.md) to see the basic documentation.
+Or [Watch the video](https://youtu.be/uH2aY1GImG4) to an overview.
 
 ## Acknowledgement
 Thanks to both Orange towards5GS, Free5GC, my5G-RANTester and UERANSIM teams for their great efforts.
