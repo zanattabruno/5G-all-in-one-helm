@@ -199,6 +199,15 @@ According to the [Free5GC documentation](https://github.com/free5gc/free5gc/wiki
 ```console
 sudo rm -rf {path-to-folder}/*
 ```
+
+Or, if are using local-path
+
+```console
+kubectl get pvc
+kubectl delete pvc datadir-mongodb-0
+```
+And reinstall core and RAN helms.
+
 #### TUN interface correctly created on the UE but internet 
 This may occur because of `ipv4.ip_forward` being disabled on the UPF POD. In fact, this functionalty is needed by the UPF as it allows him to [act as a router](http://linux-ip.net/html/routing-forwarding.html).
 
