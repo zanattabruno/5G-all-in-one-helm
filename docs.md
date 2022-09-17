@@ -23,6 +23,9 @@ Refer to this [link](https://helm.sh/docs/intro/install/) to view all possible i
 ### By cloning the project
 1. Clone the project and then.
 2. Go to the charts folder `charts`.
+![Clone print!](5G-all-in-one-helm/main/pictures/clone.png "Clone print!").
+
+
 
 ## Basic deployment
 
