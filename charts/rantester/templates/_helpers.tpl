@@ -48,6 +48,7 @@ Selector labels
 {{- define "rantester.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "rantester.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+app: {{ .Chart.Name }}
 {{- end }}
 
 {{/*
