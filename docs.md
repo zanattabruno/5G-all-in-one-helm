@@ -23,8 +23,10 @@ Refer to this [link](https://helm.sh/docs/intro/install/) to view all possible i
 ### By cloning the project
 1. Clone the project and then.
 2. Go to the charts folder `charts`.
-![Clone print!](5G-all-in-one-helm/main/pictures/clone.png "Clone print!").
-
+```console
+git clone https://github.com/zanattabruno/5G-all-in-one-helm.git
+```
+![Clone print!](pictures/clone.png "Clone print!")
 
 
 ## Basic deployment
@@ -33,7 +35,7 @@ Refer to this [link](https://helm.sh/docs/intro/install/) to view all possible i
  - A Kubernetes cluster supporting SCTP
  - Kubernetes worker nodes with kernel 5.0.0-23-generic and containing gtp5g kernel module ([required for the Free5GC UPF element](https://github.com/free5gc/free5gc/wiki/Installation#a-prerequisites)).
  - [Helm3](https://helm.sh/docs/intro/install/).
- - A Persistent Volume (size 8Gi). 
+ - A Persistent Volume (size 8Gi). If are using kubespray with [local-path](https://github.com/kubernetes-sigs/kubespray/blob/master/inventory/sample/group_vars/k8s_cluster/addons.yml#:~:text=local_path_provisioner_enabled%3A%20false) enabled, this step is optional.
  - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) (optional).
 
 ### Steps
@@ -46,13 +48,13 @@ uname -r
 
 Then, on each worker node, install the [gtp5g kernel module](https://github.com/free5gc/gtp5g). 
 ```console
-git clone -b v0.3.1 https://github.com/free5gc/gtp5g.git
+git clone -b v0.6.6 https://github.com/free5gc/gtp5g.git
 cd gtp5g
 make
 sudo make install
 ```
 #### Create a Persistent Volume
-If you don't have a Persistent Volume provisioner, you can use the following commands to create a namespace for the project and a [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) within this namespace that will be consumed by MongoDB by adapting it to your implementation (you have to replace `worker1` by the name of the node and `/home/vagrant/kubedata` by the right directory on this node in which you want to persist the MongoDB data). This is created automatically if you are using local path provisioning or something similar.
+If you don't have a Persistent Volume provisioner, you can use the following commands to create a namespace for the project and a [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) within this namespace that will be consumed by MongoDB by adapting it to your implementation (you have to replace `worker1` by the name of the node and `/home/vagrant/kubedata` by the right directory on this node in which you want to persist the MongoDB data). This is created automatically if you are using local-path provisioning or something similar.
 
 ```console
 kubectl create ns <namespace>
@@ -87,17 +89,32 @@ EOF
 ##### Install the Free5GC Helm chart
 On the [charts](../../charts) directory, run:
 ```console
-helm -n <namespace> install <free5GC-release-name> ./free5gc/
+helm -n <namespace> install <free5GC-helm-release-name> ./free5gc/
 ```
+
+
+![Core install print](pictures/core-install.png "Install print!")
+
+##### Observation
+
+If you are going to use a release name other than core, you have to change the following parameters in SMF:
+- [nodeID](charts/free5gc/charts/free5gc-smf/values.yaml#:~:text=nodeID%3A-,core,-%2Dfree5gc%2Dupf%2Dupf) and [endpoints](charts/free5gc/charts/free5gc-smf/values.yaml#:~:text=%2D-,core,-%2Dfree5gc%2Dupf%2Dupf): Where is core put your release name; Example: If your release name is free5gc change core-free5gc-upf-upf-0.upf-service to free5gc-free5gc-upf-upf-0.upf-service.
+
 ##### Check the state of the created pods
 ```console
 kubectl -n <namespace> get pods -l "project=free5gc"
 ```
+![Core pods print](pictures/core-pods.png "Pods print")
 
 ##### Add user information
 The WEBUI can is exposed with a Kubernetes service with `nodePort=30500`. So you can access it by using this url `{replace-by-the-IP-of-one-of-your-cluster-nodes}:30500`.
 
 For adding a new subscriber, please refer to the [Free5GC documentation](https://github.com/free5gc/free5gc/wiki/New-Subscriber-via-webconsole#4-use-browser-to-connect-to-webconsole). Initially, UE is configured with Free5GC default values.
+
+Default **user** is *admin* and **password** is *free5gc*:
+![Login print](pictures/login-webui.png "Login print")
+
+Go to Menu Sunscribers > New Subscriber > Submit (With defaults values)
 
 #### RAN deployment
 
@@ -111,10 +128,13 @@ On the [charts](../../charts) directory, run:
 ```console
 helm -n <namespace> install <UERANSIM-release-name> ./ueransim/
 ```
+![UERANSIM install print](pictures/ueransim-install.png "UERANSIM install print")
+
 ###### Check the state of the created pods
 ```console
 kubectl -n <namespace> get pods -l "app=ueransim"
 ```
+![UERANSIM pods print](pictures/ueransim-pods.png "UERANSIM pods print")
 
 ###### Test with the TUN interface
 Once the UERANSIM components created, you can access to the UE pod by running:
@@ -135,19 +155,24 @@ ping -I uesimtun0 www.google.com
 traceroute -i uesimtun0 www.google.com
 curl --interface uesimtun0 www.google.com
 ```
+
+![UERANSIM demo print](pictures/ueransim-demo.png "UERANSIM demo print")
 ##### Deploy of my5G-RANTester 
 
+First uninstall UERAMSIM or change subscriber ID.
+
 ###### Apply my5G-RANTeste Helm chart
-On the [tester](/tester) directory, run:
+On the [charts](../../charts) directory, run:
 ```console
-kubeclt apply -f . -n <namespace>
+helm -n <namespace> install <UERANSIM-release-name> rantester/
 ```
+![RANTester install print](pictures/rantester-install.png "RANTester install print")
 ###### Check the state of the created pods
 ```console
-kubectl -n <namespace> get pods -l "app=tester"
+kubectl -n <namespace> get pods -l "app=rantester"
 ```
 ###### Test with the TUN interface
-Once the UERANSIM components created, you can access to the UE pod by running:
+Once the RANTester components created, you can access to the UE pod by running:
 ```console
 kubectl -n <namespace> exec -it <ue-pod-name> -- bash
 ```
@@ -166,10 +191,7 @@ traceroute -i uetun1 www.google.com
 curl --interface uetun1 www.google.com
 ```
 
-
-
-## Advanced configuration
-Check the readme of each Helm chart in the project to list configurable parameters.
+![RANTester demo print](pictures/rantester-demo.png "RANTester demo print")
 
 ### Troubleshooting
 #### Clean MongoDB
