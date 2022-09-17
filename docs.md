@@ -116,6 +116,8 @@ Default **user** is *admin* and **password** is *free5gc*:
 
 Go to Menu Sunscribers > New Subscriber > Submit (With defaults values)
 
+![Login print](pictures/subscriber-webui.png "Login print")
+
 #### RAN deployment
 
 You can choose between two RAN open source projects to deploy 
