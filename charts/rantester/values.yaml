@@ -17,6 +17,8 @@
 replicaCount: 1
 projectName: rantester
 name: rantester
+#Name of the helm
+nameCoreHelm: core
 
 image:
   repository: baleeiro17/my5grantester
