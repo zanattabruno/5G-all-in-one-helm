@@ -195,6 +195,49 @@ curl --interface uetun1 www.google.com
 
 ![RANTester demo print](pictures/rantester-demo.png "RANTester demo print")
 
+## Monitoring GTP tunnel throughput (UE - UPF) with Prometheus:
+
+Add prometheus helm repo:
+```console
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+```
+
+Create namespace for monitoring stack:
+```console
+kubectl create namespace monitorng
+```
+
+Install prometheus monitoring stack:
+```console
+helm install primetheus stack prometheus-community/kube-prometheus-stack
+```
+
+Describe UPF POD to verify pod location
+```console
+kubectl describe pod core-free5gc-upf-upf-0 | grep Node:
+```
+![Describe UPF Node print](pictures/describe-upf.png "Describe UPF Node print")
+
+Connect by ssh in node where UPF is running and start iperf in server node:
+```console
+ssh <user>@<UPF-node>
+iperf -s
+```
+![Iperf server print](pictures/iperf-server.png "Iperf server print")
+
+In a new terminal instance (Iperf server must be running), go back to cluster administration node and connect to RAN pod, in this case RANTester pod. Start IPerf in client mode using interface created by RANTester
+```console
+kubectl exec -it ran-rantester-0 bash
+iiperf -B <RANTester-interface> -c <UPF-node> -i 1 -n 600
+```
+
+By end in a new terminal forward grafana pod port to access in your desktop:
+```console
+kubectl port-forward <grafana-pod-name> -n monitoring 3000:grafana
+```
+![Iperf Grafana print](pictures/iperf-grafana.png "Iperf Grafana print")
+
 ### Troubleshooting
 #### Clean MongoDB
 According to the [Free5GC documentation](https://github.com/free5gc/free5gc/wiki), you may sometimes need to drop the data stored in the MongoDB. To do so with our implementation, you need simply to empty the folder that was used in the Persistent Volume on the corresponding node.
