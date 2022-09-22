@@ -229,7 +229,7 @@ iperf -s
 In a new terminal instance (Iperf server must be running), go back to cluster administration node and connect to RAN pod, in this case RANTester pod. Start IPerf in client mode using interface created by RANTester
 ```console
 kubectl exec -it ran-rantester-0 bash
-iiperf -B <RANTester-interface> -c <UPF-node> -i 1 -n 600
+iiperf -B <RANTester-interface> -c <UPF-node> -i 1 -t 600
 ```
 
 By end in a new terminal forward grafana pod port to access in your desktop:
