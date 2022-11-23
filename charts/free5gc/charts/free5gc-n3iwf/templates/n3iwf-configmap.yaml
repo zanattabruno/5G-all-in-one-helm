@@ -20,7 +20,7 @@ metadata:
 data:
   n3iwfcfg.yaml: |
     info:
-      version: 1.0.0
+      version: 1.0.1
       description: N3IWF initial local configuration
 
     configuration:
@@ -29,17 +29,17 @@ data:
 {{- if $.Values.global.amf.service.ngap.enabled }}
           - {{ $.Values.global.amf.service.ngap.name }}
 {{- else }}
-          - {{ $.Values.global.amf.n2if.ipAddress }}
+          - core-free5gc-amf-amf-0.amf-service
 {{- end }}
           Port: {{ $.Values.global.amf.service.ngap.port }}
 
       # Bind Interfaces
       # IKE interface
-      IKEBindAddress: {{ .ike.ipAddress }} 
+      IKEBindAddress: {{ include "free5gc-n3iwf.fullname" $ }}-{{ .name }}-0
       # contrarly to the example used in docker compose here we attribute a special interface for the IKE daemon (as specified in the free5gc main project in github)
 
       # GTP interface
-      GTPBindAddress: {{ .n3if.ipAddress }}
+      GTPBindAddress: {{ include "free5gc-n3iwf.fullname" $ }}-{{ .name }}-0
       
       {{- .configuration.configuration | nindent 6 }}
 

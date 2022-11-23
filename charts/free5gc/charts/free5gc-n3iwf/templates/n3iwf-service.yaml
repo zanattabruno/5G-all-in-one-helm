@@ -1,0 +1,32 @@
+#
+# Software Name : 5G-all-in-one-helm
+# SPDX-FileCopyrightText: Copyright (c) 2022
+# SPDX-License-Identifier: Apache-2.0
+#
+# This software is distributed under the Apache License 2.0,
+# the text of which is available at https://github.com/Orange-OpenSource/towards5gs-helm/blob/main/LICENSE
+# or see the "LICENSE" file for more details.
+#
+# Author: Abderaouf KHICHANE, Ilhem FAJJARI, Ayoub BOUSSELMI
+# Software description: An open-source project providing Helm charts to deploy 5G components (Core + RAN) on top of Kubernetes
+#
+{{- with .Values.n3iwf }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $.Values.global.n3iwf.service.n3.name }}
+  labels:
+    project: {{ $.Values.global.projectName }}
+    nf: {{ .name }}
+spec:
+  type: {{ $.Values.global.n3iwf.service.n3.type }}
+  ports:
+    - name: n2
+      port: {{ $.Values.global.n3iwf.service.n3.port }}
+      targetPort: {{ $.Values.global.n3iwf.service.n3.targetport }}
+      protocol: {{ $.Values.global.n3iwf.service.n3.protocol }}  
+  clusterIP: None  
+  selector:
+    project: {{ $.Values.global.projectName }}
+    nf: {{ .name }}
+{{- end }}

@@ -46,6 +46,13 @@ global:
     nodeSelector:
       #kubernetes.io/hostname: worker1
   n3iwf:
+    service:
+      n3:
+        name: n3iwf-n3
+        port: 8805
+        targetport: 8805
+        protocol: UDP
+        type: ClusterIP
     nodeSelector:
       #kubernetes.io/hostname: worker2
   nssf:
@@ -96,7 +103,7 @@ global:
 deployMongoDB: true              
 deployAMF: true                 
 deployAUSF: true
-deployN3IWF: false
+deployN3IWF: true
 deployNRF: true              
 deployNSSF: true                 
 deployPCF: true

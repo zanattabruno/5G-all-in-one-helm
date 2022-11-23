@@ -12,7 +12,7 @@
 #
 {{- with .Values.n3iwf }}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "free5gc-n3iwf.fullname" $ }}-{{ .name }}
   labels:
@@ -20,6 +20,7 @@ metadata:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 spec:
+  serviceName: {{ $.Values.global.n3iwf.service.n3.name }}
   {{- if not .autoscaling.enabled }}
   replicas: {{ .replicaCount }}
   {{- end }}
@@ -32,26 +33,6 @@ spec:
     metadata:
       annotations:
         {{- include "free5gc-n3iwf.n3iwfAnnotations" $ | nindent 8 }}
-        k8s.v1.cni.cncf.io/networks: '[
-        {{- if not $.Values.global.amf.service.ngap.enabled }}
-            { "name": "{{ $.Values.global.n2network.name }}-{{ .name }}",
-              "interface": "n2",
-              "ips": [ "{{ .n2if.ipAddress }}/{{ $.Values.global.n2network.cidr }}" ],
-              "gateway": [ "{{ $.Values.global.n2network.gatewayIP }}" ]
-            },
-        {{- end }}
-            { "name": "{{ $.Values.global.n3network.name }}-{{ .name }}",
-              "interface": "n3",
-              "ips": [ "{{ .n3if.ipAddress }}/{{ $.Values.global.n3network.cidr }}" ],
-              "gateway": [ "{{ $.Values.global.n3network.gatewayIP }}" ]
-            },
-
-            { "name": "{{ .ike.name }}-{{ .name }}",
-              "interface": "ike",
-              "ips": [ "{{ .ike.ipAddress }}/{{ .ike.cidr }}" ],
-              "gateway": [ "{{ .ike.gatewayIP }}" ]
-            }            
-            ]'
         checksum/config: {{ include (print $.Template.BasePath "/n3iwf-configmap.yaml") $ | sha256sum }}
       labels:
         {{- include "free5gc-n3iwf.selectorLabels" $ | nindent 8 }}
@@ -68,7 +49,8 @@ spec:
         imagePullPolicy: {{ .image.pullPolicy }}
         securityContext:
             {{- toYaml .securityContext | nindent 12 }}
-        command: ["sh", "-c", "../config/n3iwf-ipsec.sh && ./n3iwf -c ../config/n3iwfcfg.yaml"]
+        #command: ["sh", "-c", "../config/n3iwf-ipsec.sh && ./n3iwf -c ../config/n3iwfcfg.yaml"]
+        command: ["sh", "-c", "../config/n3iwf-ipsec.sh && sleep 60000"]
         env:
           - name: GIN_MODE
             value: release
