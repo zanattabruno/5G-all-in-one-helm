@@ -53,6 +53,13 @@ global:
         targetport: 8805
         protocol: UDP
         type: ClusterIP
+      nwu:
+        name: n3iwf-nwu
+        port: 500
+        targetport: 500
+        nodePort: 31500
+        protocol: UDP
+        type: NodePort
     nodeSelector:
       #kubernetes.io/hostname: worker2
   nssf:

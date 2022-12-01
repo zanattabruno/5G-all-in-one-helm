@@ -29,4 +29,24 @@ spec:
   selector:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $.Values.global.n3iwf.service.nwu.name }}
+  labels:
+    project: {{ $.Values.global.projectName }}
+    nf: {{ .name }}
+spec:
+  type: {{ $.Values.global.n3iwf.service.nwu.type }}
+  ports:
+    - name: nwu
+      port: {{ $.Values.global.n3iwf.service.nwu.port }}
+      targetPort: {{ $.Values.global.n3iwf.service.nwu.targetport }}
+      nodePort: {{ $.Values.global.n3iwf.service.nwu.nodePort }}
+      protocol: {{ $.Values.global.n3iwf.service.nwu.protocol }}  
+  selector:
+    project: {{ $.Values.global.projectName }}
+    nf: {{ .name }}
 {{- end }}
