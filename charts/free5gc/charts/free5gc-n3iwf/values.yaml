@@ -136,7 +136,7 @@ n3iwf:
       IPSecInterfaceMark: 5
       
       # NAS TCP Listen Port
-      NASTCPPort: 20000    
+      NASTCPPort: 32000    
       
       # N3IWF FQDN
       FQDN: n3iwf.free5gc.org    
@@ -157,13 +157,13 @@ n3iwf:
       # ReportCaller: enable the caller report or not, value: true or false
     logger:
       N3IWF:
-        debugLevel: debug
+        debugLevel: trace
         ReportCaller: false
       NGAP:
-        debugLevel: info
+        debugLevel: trace
         ReportCaller: false
       Aper:
-        debugLevel: info
+        debugLevel: trace
         ReportCaller: false
 
 # These parameters apply in case of deployinh N3IWF if a different cluster from the one where AMF is deployed and a Kubernetes service is used for AMF' N2 interface

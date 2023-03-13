@@ -14,18 +14,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $.Values.global.n3iwf.service.n3.name }}
+  name: {{ $.Values.global.n3iwf.service.nastcp.name }}
   labels:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}
 spec:
-  type: {{ $.Values.global.n3iwf.service.n3.type }}
+  type: {{ $.Values.global.n3iwf.service.nastcp.type }}
   ports:
-    - name: n3
-      port: {{ $.Values.global.n3iwf.service.n3.port }}
-      targetPort: {{ $.Values.global.n3iwf.service.n3.targetport }}
-      protocol: {{ $.Values.global.n3iwf.service.n3.protocol }}  
-  clusterIP: None  
+    - name: nastcp
+      port: {{ $.Values.global.n3iwf.service.nastcp.port }}
+      targetPort: {{ $.Values.global.n3iwf.service.nastcp.targetport }}
+      nodePort: {{ $.Values.global.n3iwf.service.nastcp.nodePort }}
+      protocol: {{ $.Values.global.n3iwf.service.nastcp.protocol }}  
   selector:
     project: {{ $.Values.global.projectName }}
     nf: {{ .name }}

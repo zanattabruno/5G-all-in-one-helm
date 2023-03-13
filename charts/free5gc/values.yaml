@@ -60,6 +60,13 @@ global:
         nodePort: 31500
         protocol: UDP
         type: NodePort
+      nastcp:
+        name: n3iwf-nas-tcp
+        port: 32000
+        targetport: 32000
+        nodePort: 32000
+        protocol: TCP
+        type: NodePort
     nodeSelector:
       #kubernetes.io/hostname: worker2
   nssf:
