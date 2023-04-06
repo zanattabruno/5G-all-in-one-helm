@@ -25,7 +25,7 @@ data:
       description: UPF configuration
     
     configuration:
-      {{- toYaml .configuration.configuration | nindent 6 }}
+      {{- $.Files.Get "configuration.yaml" | nindent 6 }}
     
       pfcp:
         - addr: {{ include "free5gc-upf.fullname" $ }}-{{ .name }}-0

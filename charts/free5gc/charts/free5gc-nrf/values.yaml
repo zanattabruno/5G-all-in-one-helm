@@ -113,10 +113,6 @@ nrf:
     serviceNameList: |-
       - nnrf-nfm
       - nnrf-disc
-    configuration: |-
-      DefaultPlmnId:
-        mcc: 208
-        mnc: 93
     logger:
       NRF:
         debugLevel: info

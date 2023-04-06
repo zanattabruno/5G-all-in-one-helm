@@ -1,0 +1,9 @@
+# debugLevel: panic|fatal|error|warn|info|debug|trace
+debugLevel: info
+ReportCaller: false
+
+dnn_list:
+  - dnn: internet
+    cidr: 10.1.0.0/17
+    # [optional] apn_list[*].natifname
+    natifname: n6
