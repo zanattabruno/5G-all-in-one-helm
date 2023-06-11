@@ -89,7 +89,7 @@ EOF
 ##### Install the Free5GC Helm chart
 On the [charts](../../charts) directory, run:
 ```console
-helm -n <namespace> install <free5GC-helm-release-name> ./free5gc/
+helm -n <namespace> install core ./free5gc/
 ```
 
 
