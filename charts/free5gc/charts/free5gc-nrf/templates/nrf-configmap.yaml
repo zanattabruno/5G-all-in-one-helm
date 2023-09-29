@@ -39,7 +39,7 @@ data:
           key: config/TLS/nrf.key
           pem: config/TLS/nrf.pem
 
-      {{- .configuration.configuration | nindent 6 }}
+      {{- $.Files.Get "configuration.yaml" | nindent 6 }}
 
     logger:
       {{- toYaml .configuration.logger | nindent 6 }}

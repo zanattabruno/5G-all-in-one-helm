@@ -41,7 +41,7 @@ data:
       # GTP interface
       GTPBindAddress: {{ include "free5gc-n3iwf.fullname" $ }}-{{ .name }}-0
       
-      {{- .configuration.configuration | nindent 6 }}
+      {{- $.Files.Get "configuration.yaml" | nindent 6 }}
 
     logger:
       {{- toYaml .configuration.logger | nindent 6 }}

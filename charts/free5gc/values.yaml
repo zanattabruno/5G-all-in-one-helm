@@ -117,7 +117,7 @@ global:
 deployMongoDB: true              
 deployAMF: true                 
 deployAUSF: true
-deployN3IWF: true
+deployN3IWF: false
 deployNRF: true              
 deployNSSF: true                 
 deployPCF: true

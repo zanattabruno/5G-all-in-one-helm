@@ -88,16 +88,6 @@ upf:
     targetCPUUtilizationPercentage: 80
     # targetMemoryUtilizationPercentage: 80
   configuration:
-    configuration:
-      # debugLevel: panic|fatal|error|warn|info|debug|trace
-      debugLevel: info
-      ReportCaller: false
-
-      dnn_list:
-        - dnn: internet
-          cidr: 10.1.0.0/17
-          # [optional] apn_list[*].natifname
-          natifname: n6
 
 
 # The followed values will be considered in the case of choosing "ulcl" architecture for the user plane
